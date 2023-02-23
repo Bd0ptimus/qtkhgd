@@ -1,0 +1,27 @@
+var i18n = window.i18n();
+i18n.setLocale('vi');
+i18n.setMessages('messages', 'vi', {
+  "Muscle\nfiber": "Sợi cơ",
+  "Tracheoles": "Ống khí nhỏ",
+  "Tracheal tube": "Ống khí",
+  "Stigmas": "Lỗ thở",
+  "Head": "Đầu",
+  "Thorax": "Ngực",
+  "Abdomen": "Bụng",
+  "Brain": "Não",
+  "Tracheal tubes": "Ống khí",
+  "Muscle": "Cơ",
+  "Intestine": "Ruột",
+  "Antennae": "Râu",
+  "Three pairs\nof legs": "Ba cặp chân",
+  "Cerci": "Râu đuôi",
+  "Zoom in to see gas exchanges at the level of the tracheole.": "Phóng to để xem trao đổi khí ở mức độ ống khí nhỏ.",
+  "Expired air": "Khí thở ra",
+  "Inspired air": "Khí hít vào",
+  "Carbon dioxide (CO₂)": "Cacbonic (CO₂)",
+  "Oxygen (O₂)": "Oxy (O₂)",
+  "Air poor in O₂": "Khí nghèo O₂",
+  "Air rich in O₂": "Khí giàu O₂",
+  "Air rich in CO₂": "Khí giàu CO₂",
+  "Air poor in CO₂": "Khí nghèo CO₂",
+}, 'nplurals=1; plural=0;');

@@ -1,0 +1,15 @@
+body {
+    position: relative;
+}
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 37%;
+    height:9%;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    text-align: left;
+}

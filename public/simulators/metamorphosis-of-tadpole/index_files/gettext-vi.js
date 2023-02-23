@@ -1,0 +1,26 @@
+var i18n = window.i18n();
+i18n.setLocale('vi');
+i18n.setMessages('messages', 'vi', {
+  "Hatching": "Nở",
+  "1 week": "1 tuần",
+  "On the ground": "Trên mặt đất",
+  "In the water": "Dưới nước",
+  "Frog at reproduction age > 2 years": "Ếch ở tuổi sinh sản > 2 năm",
+  "16 weeks": "16 tuần",
+  "12 weeks": "12 tuần",
+  "10 weeks": "10 tuần",
+  "8 weeks": "8 tuần",
+  "6 weeks": "6 tuần",
+  "1 week": "1 tuần",
+  "The tail is absorbed": "Đuôi bị hấp thụ",
+  "Front legs": "Chân trước",
+  "Lungs develop": "Phổi phát triển",
+  "Hind legs": "Chân sau",
+  "Internal gills": "Mang trong",
+  "External gills": "Mang ngoài",
+  "Tadpole": "Nòng nọc",
+  "Jelly enveloppe": "Bao nhầy",
+  "Embryo": "Phôi",
+  "Several hundreds of eggs": "Vài trăm trứng",
+  "Click in the timeline or click on play.": "Nhấn vào dòng thời gian hoặc nhấn ►.",
+}, 'nplurals=1; plural=0;');

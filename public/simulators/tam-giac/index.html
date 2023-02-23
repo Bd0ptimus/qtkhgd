@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://openclassroom.edu.vn/juniormath/triangle/ -->
+<html lang="vi" class="ua-chrome ua-chrome-104 ua-chrome-104-0 ua-chrome-104-0-0 ua-chrome-104-0-0-0 ua-desktop ua-desktop-macintosh ua-mac_os_x ua-mac_os_x-10 ua-mac_os_x-10-15 ua-mac_os_x-10-15-7 ua-webkit ua-webkit-537 ua-webkit-537-36 js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Tam giác</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="./index_files/vl.css">
+<style>html {overflow: auto;} html, body {margin: 0; padding: 0;} canvas {display: block; margin: auto;}</style>
+<script>
+
+
+    var canvas, stage, exportRoot, images, ss;
+
+
+    function init() {
+        canvas = document.getElementById("canvas");
+        createjs.LoadItem.LOAD_TIMEOUT_DEFAULT = 120 * 1000;
+
+
+
+        if (lib.properties.manifest && lib.properties.manifest.length) {
+            images = images || {};
+            ss = ss || {};
+            var loader = new createjs.LoadQueue(false);
+
+            loader.addEventListener("fileload", handleFileLoad);
+            loader.addEventListener("complete", handleComplete);
+            loader.loadManifest(lib.properties.manifest);
+        } else {
+            handleComplete();
+        }
+
+
+    }
+
+    function handleFileLoad(evt) {
+        if (evt.item.type == "image") {
+            images[evt.item.id] = evt.result;
+        }
+    }
+
+    function handleComplete(evt) {
+
+
+        if (evt) {
+            var queue = evt.target;
+            var ssMetadata = lib.ssMetadata;
+            for (var i = 0; i < ssMetadata.length; i++) {
+                ss[ssMetadata[i].name] = new createjs.SpriteSheet({
+                    "images": [queue.getResult(ssMetadata[i].name)],
+                    "frames": ssMetadata[i].frames
+                })
+            }
+        }
+
+
+        exportRoot = new lib._282();
+        stage = new createjs.Stage(canvas);
+        var bg = new createjs.Shape();
+        bg.graphics.beginFill('white').drawRect(0, 0, lib.properties.width, lib.properties.height);
+        exportRoot.addChildAt(bg, 0);
+        bg.on('tick', function() {
+            if (exportRoot.getChildIndex(bg) != 0) exportRoot.setChildIndex(bg, 0);
+        });
+        stage.addChild(exportRoot);
+        canvas.style.display = '';
+        stage.update();
+        stage.enableMouseOver();
+
+        createjs.Ticker.setFPS(lib.properties.fps);
+        createjs.Ticker.addEventListener("tick", stage);
+        createjs.Touch.enable(stage);
+
+        try {
+            var wtlh = window.top.location.hostname;
+        } catch (e) {
+            var wtlh = null;
+        }
+        if (window.location.hostname == wtlh) {
+            canvas.focus();
+        }
+
+        resize();
+    }
+
+
+    var resizingClassSuffix = ' u-resizing';
+    var prevWidth, resizeTimeout;
+
+    function addResizingClass() {
+        if (document.body.className.indexOf(resizingClassSuffix) == -1) document.body.className += resizingClassSuffix;
+    }
+
+    function removeResizingClass() {
+        document.body.className = document.body.className.replace(resizingClassSuffix, '');
+    }
+
+    function doResize() {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        prevWidth = w;
+
+        var hRatio = w / lib.properties.width;
+        var vRatio = h / lib.properties.height;
+
+        removeResizingClass();
+
+        var minRatio = Math.min(hRatio, vRatio);
+
+        canvas.width = minRatio * lib.properties.width;
+        canvas.height = minRatio * lib.properties.height;
+        exportRoot.scaleX = exportRoot.scaleY = minRatio;
+
+        document.body.dispatchEvent(new Event("AfterResize"));
+    }
+
+    function resize() {
+
+        if (cssua.ua.ios && EMVideo && EMVideo.hasStyle) {
+            addResizingClass();
+
+            if (prevWidth && prevWidth == window.innerWidth) {
+                removeResizingClass();
+                return;
+            }
+
+            if (resizeTimeout) clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(doResize, 100);
+
+            return;
+        }
+
+        removeResizingClass();
+
+        if (window.resizeTimeout) clearTimeout(window.resizeTimeout);
+        canvas.width = canvas.height = 0;
+
+        window.resizeTimeout = setTimeout(function() {
+            var hRatio = window.innerWidth / lib.properties.width;
+            var vRatio = window.innerHeight / lib.properties.height;
+            var minRatio = Math.min(hRatio, vRatio);
+
+            canvas.width = minRatio * lib.properties.width;
+            canvas.height = minRatio * lib.properties.height;
+            exportRoot.scaleX = exportRoot.scaleY = minRatio;
+
+            document.body.dispatchEvent(new Event("AfterResize"));
+        }, 10);
+
+    }
+
+    if (window.addEventListener) window.addEventListener('orientationchange', function() {
+        addResizingClass();
+        setTimeout(resize, 1000);
+    });
+</script>
+</head>
+
+<body onload="init();" onresize="resize()" class="">
+<div class="main-content" style="background-color:#FFFFFF;font-family:Arial;Helvetica,sans-serif">
+
+    <h2>Edusmart - Hướng dẫn thực hành</h2>
+    <div itemprop="description"><p>Bạn thực hành các bước theo hướng dẫn sau</p></div>
+</div>
+
+<canvas id="canvas" width="883" height="707" style="background-color: rgb(255, 255, 255);"></canvas>
+<script src="./index_files/gettext.min.js"></script>
+<script src="./index_files/gettext-vi.js"></script>
+
+<script src="./index_files/createjs-2015.11.26.min.js"></script>
+<script src="./index_files/compo.min.js"></script>
+<script src="./index_files/triangle.js"></script>
+<a href="https://openclassroom.edu.vn/juniormath/triangle/#" target="_top" id="js-dto" class="demo-overlay js-demo-overlay" style="display: none;">
+    <span class="demo-overlay__body">Đăng ký »</span>
+</a>
+
+
+
+</body></html>

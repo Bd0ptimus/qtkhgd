@@ -1,0 +1,4 @@
+#tinymce {
+    overflow:scroll !important; 
+    max-height: 400px !important;
+}

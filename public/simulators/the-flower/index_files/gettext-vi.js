@@ -1,0 +1,25 @@
+var i18n = window.i18n();
+i18n.setLocale('vi');
+i18n.setMessages('messages', 'vi', {
+  "Petal": "Cánh hoa",
+  "Anther": "Bao phấn",
+  "Filament": "Chỉ nhị",
+  "Stigma": "Đầu nhụy",
+  "Style": "Vòi nhụy",
+  "Ovary": "Bầu nhụy",
+  "Ovule": "Noãn",
+  "Stamen": "Nhị",
+  "Carpel": "Lá noãn",
+  "Peduncle": "Cuống",
+  "Sepal": "Lá đài",
+  "Fruit": "Quả",
+  "Flower Bud": "Nụ hoa",
+  "Stem": "Thân",
+  "Roots": "Rễ",
+  "Eyebud": "Mắt",
+  "Thorn": "Gai",
+  "Leaf": "Lá",
+  "Flower": "Hoa",
+  "Click on the flower to enlarge it.": "Nhấn vào bông hoa để phóng to nó.",
+  "Pistil: Female reproductive organ of the flower\ncomposed of carpels": "Nhụy: cơ quan sinh sản cái của hoa\ncấu tạo từ các lá noãn",
+}, 'nplurals=1; plural=0;');

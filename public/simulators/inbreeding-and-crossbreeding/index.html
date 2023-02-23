@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://openclassroom.edu.vn/biologylab/inbreeding-and-crossbreeding/ -->
+<html lang="vi" class="ua-windows_nt ua-windows_nt-10 ua-windows_nt-10-0 ua-chrome ua-chrome-106 ua-chrome-106-0 ua-chrome-106-0-0 ua-chrome-106-0-0-0 ua-desktop ua-desktop-windows ua-webkit ua-webkit-537 ua-webkit-537-36 js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Lai thuần chủng và lai chéo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./index_files/vl.css">
+<link rel="stylesheet" href="../libs/footer.css">
+
+<style>html {overflow: auto;} html, body {margin: 0; padding: 0;} canvas {display: block; margin: auto;}</style>
+<script>
+
+    var canvas, stage, exportRoot;
+
+    function init() {
+        canvas = document.getElementById("canvas");
+        createjs.LoadItem.LOAD_TIMEOUT_DEFAULT = 120 * 1000;
+
+        createjs.MotionGuidePlugin.install();
+
+        exportRoot = new lib._232();
+        stage = new createjs.Stage(canvas);
+        var bg = new createjs.Shape();
+        bg.graphics.beginFill('white').drawRect(0, 0, lib.properties.width, lib.properties.height);
+        exportRoot.addChildAt(bg, 0);
+        bg.on('tick', function() {
+            if (exportRoot.getChildIndex(bg) != 0) exportRoot.setChildIndex(bg, 0);
+        });
+        stage.addChild(exportRoot);
+        canvas.style.display = '';
+        stage.update();
+        stage.enableMouseOver();
+
+        createjs.Ticker.setFPS(lib.properties.fps);
+        createjs.Ticker.addEventListener("tick", stage);
+        createjs.Touch.enable(stage);
+        resize();
+    }
+
+    var resizingClassSuffix = ' u-resizing';
+    var prevWidth, resizeTimeout;
+
+    function addResizingClass() {
+        if (document.body.className.indexOf(resizingClassSuffix) == -1) document.body.className += resizingClassSuffix;
+    }
+
+    function removeResizingClass() {
+        document.body.className = document.body.className.replace(resizingClassSuffix, '');
+    }
+
+    function doResize() {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        prevWidth = w;
+
+        var hRatio = w / lib.properties.width;
+        var vRatio = h / lib.properties.height;
+
+        removeResizingClass();
+
+        var minRatio = Math.min(hRatio, vRatio);
+
+        canvas.width = minRatio * lib.properties.width;
+        canvas.height = minRatio * lib.properties.height;
+        exportRoot.scaleX = exportRoot.scaleY = minRatio;
+
+        document.body.dispatchEvent(new Event("AfterResize"));
+    }
+
+    function resize() {
+
+        if (cssua.ua.ios && EMVideo && EMVideo.hasStyle) {
+            addResizingClass();
+
+            if (prevWidth && prevWidth == window.innerWidth) {
+                removeResizingClass();
+                return;
+            }
+
+            if (resizeTimeout) clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(doResize, 100);
+
+            return;
+        }
+
+        removeResizingClass();
+
+        if (window.resizeTimeout) clearTimeout(window.resizeTimeout);
+        canvas.width = canvas.height = 0;
+
+        window.resizeTimeout = setTimeout(function() {
+            var hRatio = window.innerWidth / lib.properties.width;
+            var vRatio = window.innerHeight / lib.properties.height;
+            var minRatio = Math.min(hRatio, vRatio);
+
+            canvas.width = minRatio * lib.properties.width;
+            canvas.height = minRatio * lib.properties.height;
+            exportRoot.scaleX = exportRoot.scaleY = minRatio;
+
+            document.body.dispatchEvent(new Event("AfterResize"));
+        }, 10);
+
+    }
+
+    if (window.addEventListener) window.addEventListener('orientationchange', function() {
+        addResizingClass();
+        setTimeout(resize, 1000);
+    });
+</script>
+</head>
+
+<body onload="init();" onresize="resize()" class="">
+
+<canvas id="canvas" width="1092" height="874" style="background-color: rgb(255, 255, 255);"></canvas>
+<script src="./index_files/gettext.min.js"></script>
+<script src="./index_files/gettext-vi.js"></script>
+
+<script src="../libs/createjs-2015.11.26.min.js"></script>
+<script src="./index_files/compo.min.js"></script>
+<script src="./index_files/inbreeding-and-crossbreeding.js"></script>
+<div class="footer">
+    <p>COPYRIGHT © 2020 GP Group</p>
+</div>
+
+
+</body></html>
